@@ -54,6 +54,12 @@ My CSS:
   margin-right: auto;
 }
 
+#menu_elements {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .menu_item {
   /* display: flex; */
   margin-left: 2em;
