@@ -5,7 +5,7 @@ import Welcome from './components/welcome'
 import DogList from './components/doglist'
 import DogInfo from './components/doginfo'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
@@ -26,6 +26,8 @@ const NavMenu = () => {
 }
 
 function App() {
+
+  const [routesArray, setRoutesArray] = useState([]);
   
   return (
     <div>
@@ -36,7 +38,10 @@ function App() {
         <Route path='/welcome'
           element= {<Welcome/>} />
         <Route path='/doglist'
-          element= {<DogList/>} />
+          element= {<DogList routes={routesArray} setRoutes={setRoutesArray}/>} />
+          <Route path='/doginfo'
+          element= {<DogInfo/>} />
+        {routesArray}
       </Routes>
     </div>
   )
