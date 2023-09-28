@@ -27,7 +27,7 @@ const NavMenu = () => {
 
 function App() {
 
-  const [routesArray, setRoutesArray] = useState([]);
+  //const [routesArray, setRoutesArray] = useState([]);
   
   return (
     <div>
@@ -38,10 +38,10 @@ function App() {
         <Route path='/welcome'
           element= {<Welcome/>} />
         <Route path='/doglist'
-          element= {<DogList routes={routesArray} setRoutes={setRoutesArray}/>} />
-          <Route path='/doginfo'
+          element= {<DogList/>}/>
+          <Route path='/doginfo/:chipnumber'
           element= {<DogInfo/>} />
-        {routesArray}
+        {/* {routesArray} */}
       </Routes>
     </div>
   )

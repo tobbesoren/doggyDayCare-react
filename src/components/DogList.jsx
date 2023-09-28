@@ -28,22 +28,22 @@ const DogList = (params) => {
         createDogList(dogs);
     }
     
-    const createDogList = (dogs, routes) => {
+    const createDogList = (dogs) => {
         
         let dogList = [];
-        let routesList = [];
+        //let routesList = [];
 
         dogs.forEach(dog => {
             const newDog = Dog(dog);
-            const newRoute = DogRoute(dog);
-            console.log(newRoute);
-            routesList.push(newRoute);
+            //const newRoute = DogRoute(dog);
+            //console.log(newRoute);
+            //routesList.push(newRoute);
             dogList.push(newDog);
         })
 
         setDogComponents(dogList);
-        params.setRoutes(routesList);
-        console.log(params.routesList);
+        //params.setRoutes(routesList);
+        //console.log(params.routesList);
     }
 
     
@@ -55,13 +55,13 @@ const DogList = (params) => {
     )
 }
 
-const DogRoute = (dog) => {
-    const path = "../doginfo/" + dog.chipNumber
-    return (
-        <Route key={path} path={path} element={<DogInfo/>} />
+// const DogRoute = (dog) => {
+//     const path = "../doginfo/" + dog.chipNumber
+//     return (
+//         <Route key={path} path={path} element={<DogInfo/>} />
        
-    )
-}
+//     )
+// }
 
 
 const Dog = (dog) => {
