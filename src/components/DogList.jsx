@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import DogInfo from '../components/doginfo'
 import './DogList.css';
 import fallback from "./doggydog.png";
 
 
 
-const DogList = (params) => {
-
+const DogList = (props) => {
+    
     const [dogComponents, setDogComponents] = useState([]);
+    //const params = useParams();
     
     useEffect (()=> {
         fetchData();
@@ -31,22 +32,32 @@ const DogList = (params) => {
     const createDogList = (dogs) => {
         
         let dogList = [];
-        //let routesList = [];
 
         dogs.forEach(dog => {
             const newDog = Dog(dog);
-            //const newRoute = DogRoute(dog);
-            //console.log(newRoute);
-            //routesList.push(newRoute);
             dogList.push(newDog);
         })
 
         setDogComponents(dogList);
-        //params.setRoutes(routesList);
-        //console.log(params.routesList);
+        
     }
 
-    
+    const Dog = (dog) => {
+        const path = "../doginfo/" + dog.chipNumber;
+        return (
+            <Link to={path} className="dog" key={dog.chipNumber} onClick={() => setDog(dog)}>
+                <h3>{dog.name}</h3>
+                <img className="dog_image"
+                    src={dog.img}
+                    onError={(e) => (e.currentTarget.src = fallback)} />
+            </Link>
+        );
+    }
+
+    const setDog = (dog) => {
+        console.log(dog.chipNumber);
+        props.setDog(dog);
+    }
 
     return (
         <div id="dogGrid">
@@ -55,26 +66,11 @@ const DogList = (params) => {
     )
 }
 
-// const DogRoute = (dog) => {
-//     const path = "../doginfo/" + dog.chipNumber
-//     return (
-//         <Route key={path} path={path} element={<DogInfo/>} />
-       
-//     )
-// }
 
 
-const Dog = (dog) => {
-    const path = "../doginfo/" + dog.chipNumber
-    return (
-        <Link to={path} className="dog" key={dog.chipNumber}>
-            <h3 >{dog.name}</h3>
-            <img className="dog_image"
-                src={dog.img} 
-                onError={(e) => (e.currentTarget.src = fallback)}/>
-        </Link>
-    )
-}
+
+
+
 
 
 export default DogList;
