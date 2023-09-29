@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import './DogList.css'
-import fallback from "./doggydog.png"
+import { Link, Route, Routes } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import './DogList.css';
+import fallback from "./doggydog.png";
 
 
 
-const DogList = () => {
-
+const DogList = (props) => {
+    
     const [dogComponents, setDogComponents] = useState([]);
-
+    //const params = useParams();
+    
     useEffect (()=> {
-        console.log('useEffect []')
         fetchData();
       }, []);
 
-      useEffect (()=> {
-        console.log('useEffect [data]')
-      }, [dogComponents]);
+    useEffect (()=> {}, [dogComponents]);
 
-      const fetchData = async () => {
+    const fetchData = async () => {
+        
         const apiURL = "https://api.jsonbin.io/v3/b/650a7ebece39bb6dce7f5683"
     
         const response = await fetch(apiURL);
@@ -26,8 +27,6 @@ const DogList = () => {
         const dogs = dogsData.record;
 
         createDogList(dogs);
-    
-        //console.log("Dogs:", dogs);
     }
     
     const createDogList = (dogs) => {
@@ -36,11 +35,28 @@ const DogList = () => {
 
         dogs.forEach(dog => {
             const newDog = Dog(dog);
-            //console.log(newDog);
             dogList.push(newDog);
         })
+
         setDogComponents(dogList);
-        //console.log(dogs);
+        
+    }
+
+    const Dog = (dog) => {
+        const path = "../doginfo/" + dog.chipNumber;
+        return (
+            <Link to={path} className="dog" key={dog.chipNumber} onClick={() => setDog(dog)}>
+                <h3>{dog.name}</h3>
+                <img className="dog_image"
+                    src={dog.img}
+                    onError={(e) => (e.currentTarget.src = fallback)} />
+            </Link>
+        );
+    }
+
+    const setDog = (dog) => {
+        console.log(dog.chipNumber);
+        props.setDog(dog);
     }
 
     return (
@@ -51,17 +67,9 @@ const DogList = () => {
 }
 
 
-const Dog = (dog) => {
-    return (
-        <div className="dog" key={dog.chipNumber}>
-            <h3 >{dog.name}</h3>
-            <img className="dog_image"
-                src={dog.img} 
-                onError={(e) => (e.currentTarget.src = fallback)}
-            />
-        </div>
-    )
-}
+
+
+
 
 
 
