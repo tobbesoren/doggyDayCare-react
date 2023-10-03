@@ -5,9 +5,7 @@ import Welcome from './components/welcome'
 import DogList from './components/doglist'
 import DogInfo from './components/doginfo'
 
-import { useEffect, useState } from 'react'
 import { Link, Route, Routes } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
 
 const NavMenu = () => {
     
@@ -27,8 +25,6 @@ const NavMenu = () => {
 
 function App() {
 
-  const [currentDog, setCurrentDog] = useState(null);
-  
   return (
     <div>
       <NavMenu/>
@@ -38,9 +34,11 @@ function App() {
         <Route path='/welcome'
           element= {<Welcome/>} />
         <Route path='/doglist'
-          element= {<DogList currentDog={currentDog} setDog={setCurrentDog}/>}/>
-          <Route path='/doginfo/:chipnumber'
-          element= {<DogInfo currentDog={currentDog}/>}/>
+          element= {<DogList/>}/>
+        <Route path='/doginfo/:chipnumber'
+          element= {<DogInfo/>}/>
+        <Route path='/doginfo/'
+          element= {<DogInfo/>}/>
       </Routes>
     </div>
   )

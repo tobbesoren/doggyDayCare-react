@@ -1,15 +1,64 @@
 import { useState, useEffect } from "react";
 import fallback from "./doggydog.png";
+import { useParams } from "react-router-dom";
 
 
-const DogInfo = (props) => {
+const DogInfo = () => {
 
+    const params = useParams();
     const [infoComponent, setInfoComponent] = useState();
-    useEffect (()=> {
-        setInfoComponent(InfoComponent(props.currentDog));
-      }, []);
+    
+    useEffect (()=> {setDog()}, []);
+    useEffect(() => {}, [infoComponent])
+
+    const setDog = () => {
+        if ('chipnumber' in params) {
+            fetchDogData(params.chipnumber);
+        } else {
+            setInfoComponent(ErrorComponent('No dog selected'));
+        }
+        
+    }
+
+    const ErrorComponent = (error) => {
+        return (
+            <div>{error}</div>
+        )
+    }
+
+
+    const fetchDogData = async (chipnumber) => {
+        
+        const apiURL = 'https://api.jsonbin.io/v3/b/651bd5c054105e766fbd1056'
+        const accessKey ='$2a$10$xkrw9EmCeBEQhtB.7ID2GeWEc/z.PKgRQ1dt5Xb/pVBKBwiGwGWKu'
+        
+        try{
+            const response = await fetch (apiURL, {
+                headers: {
+                    'X-Access-Key' : accessKey,
+                    'X-JSON-Path' : `$..[?(@.chipNumber=='${chipnumber}')]`,
+                }
+            });
+            const dogsData = await response.json();
+        
+            const dogs = dogsData.record;
+            const dog = dogs[0];
+            setInfoComponent(InfoComponent(dog));
+        } catch (error) {
+            setInfoComponent(ErrorComponent("Couldn't find any dog with chipnumber: " + chipnumber));
+        }
+
+    }
+    
 
     const InfoComponent = (dog) => {
+        let present = "";
+
+        if (dog.present) {
+            present = 'Present';
+        } else {
+            present = 'Absent'
+        }
 
         return (
             <div>
@@ -17,25 +66,26 @@ const DogInfo = (props) => {
                     {dog.name}
                 </h2>
                 <h3>
-                    {dog.sex}
+                    {present}
                 </h3>
                 <h3>
-                    {dog.breed}
+                    Sex: {dog.sex}
                 </h3>
                 <h3>
-                    {dog.present}
+                    Breed: {dog.breed}
+                </h3>
+                
+                <h3>
+                    Age: {dog.age}
                 </h3>
                 <h3>
-                    {dog.age}
+                    Chip number: {dog.chipNumber}
                 </h3>
                 <h3>
-                    {dog.chipNumber}
+                    Owner: {dog.owner.name} {dog.owner.lastName}
                 </h3>
                 <h3>
-                    {dog.owner.name} {dog.owner.lastName}
-                </h3>
-                <h3>
-                    {dog.owner.phoneNumber}
+                    Phone: {dog.owner.phoneNumber}
                 </h3>
                 <img className="dog_image"
                         src={dog.img}
