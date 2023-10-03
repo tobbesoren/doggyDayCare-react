@@ -20,9 +20,14 @@ const DogList = (props) => {
 
     const fetchData = async () => {
         
-        const apiURL = "https://api.jsonbin.io/v3/b/650a7ebece39bb6dce7f5683"
+        const apiURL = 'https://api.jsonbin.io/v3/b/651bd5c054105e766fbd1056'
+        const accessKey ='$2a$10$xkrw9EmCeBEQhtB.7ID2GeWEc/z.PKgRQ1dt5Xb/pVBKBwiGwGWKu'
     
-        const response = await fetch(apiURL);
+        const response = await fetch(apiURL, {
+            headers: {
+                'X-Access-Key' : accessKey,
+            }
+        });
         const dogsData = await response.json();
         const dogs = dogsData.record;
 
@@ -55,7 +60,7 @@ const DogList = (props) => {
     }
 
     const setDog = (dog) => {
-        console.log(dog.chipNumber);
+        //console.log(dog.chipNumber);
         props.setDog(dog);
     }
 
