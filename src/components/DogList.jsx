@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import './DogList.css';
 import fallback from "./doggydog.png";
 
 
 
-const DogList = (props) => {
+const DogList = () => {
     
     const [dogComponents, setDogComponents] = useState([]);
-    //const params = useParams();
-    
+   
     useEffect (()=> {
         fetchData();
       }, []);
@@ -30,8 +28,9 @@ const DogList = (props) => {
         });
         const dogsData = await response.json();
         const dogs = dogsData.record;
+        const sortedDogs = sortDogs(dogs);
 
-        createDogList(dogs);
+        createDogList(sortedDogs);
     }
     
     const createDogList = (dogs) => {
@@ -42,26 +41,41 @@ const DogList = (props) => {
             const newDog = Dog(dog);
             dogList.push(newDog);
         })
-
+        
         setDogComponents(dogList);
         
     }
 
+
+    const sortDogs = (dogs) => {
+        const sortedDogs = dogs
+        .filter(dog => dog.present)
+        .sort((a, b) => {return a.name.localeCompare(b.name)})
+        .concat(dogs
+            .filter(dog => !dog.present)
+            .sort((a, b) => {return a.name.localeCompare(b.name)})
+            );
+
+        return sortedDogs;
+    }
+
     const Dog = (dog) => {
         const path = "../doginfo/" + dog.chipNumber;
+        let present = '';
+        if (dog.present) {
+            present = 'Present';
+        } else {
+            present = 'Absent';
+        }
         return (
-            <Link to={path} className="dog" key={dog.chipNumber} onClick={() => setDog(dog)}>
+            <Link to={path} className="dog" key={dog.chipNumber} >
                 <h3>{dog.name}</h3>
                 <img className="dog_image"
                     src={dog.img}
                     onError={(e) => (e.currentTarget.src = fallback)} />
+                <h4>{present}</h4>
             </Link>
         );
-    }
-
-    const setDog = (dog) => {
-        //console.log(dog.chipNumber);
-        props.setDog(dog);
     }
 
     return (
