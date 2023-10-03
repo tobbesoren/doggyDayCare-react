@@ -1,0 +1,23 @@
+Ändra så att navigering direkt till doginfo med chipnr funkar.
+Måste nog använda params. Ladda data.
+Hmm, om jag sätter currentDog genom att klicka på en hund och sedan navigerar direkt till en annan hund genom att skriva in URL:n, hur skall det hanteras
+så att jag inte kommer till den förra?
+Kanske skall skrota currentDog och helt enkelt ladda hund genom URL:ens chipNr.
+Måste kolla om man kan hämta bara en hund från API:n.
+Annars kan jag ju helt enkelt kolla om dogData är laddat, annars ladda den. Hmm
+
+Sortera arrayen med hundar i dogList:
+Default: bokstavsordning
+Drop-down-meny
+
+Filtrera på: närvarande, frånvarande, alla
+Default: alla
+
+Lägga till titlar i dogInfo
+
+Flytta NavBar till egen component
+-lägga till knapp till dogInfo som visar den senast kollade hunden
+
+Hantera om man navigerar till dogInfo utan att ha valt en hund (currentDog = null)
+Eller om man försökt navigera direkt men skrivit ett ogiltigt chipnr. Båda delarna skall visa knapp som leder till dogList, men olika meddelanden: ”Tyvärr kan vi inte hitta någon hund med chipnr(chipnr)”, ”Ingen hund vald!”
+(Gå till hundlistan)
