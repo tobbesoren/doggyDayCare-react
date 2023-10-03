@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import fallback from "./doggydog.png";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 const DogInfo = () => {
+
+    const navigate = useNavigate();
 
     const params = useParams();
     const [infoComponent, setInfoComponent] = useState();
@@ -22,7 +24,10 @@ const DogInfo = () => {
 
     const ErrorComponent = (error) => {
         return (
-            <div>{error}</div>
+            <div>
+                <div>{error}</div>
+                <button onClick={() => {navigate('/doglist')}}>Dog list</button>
+            </div>
         )
     }
 
