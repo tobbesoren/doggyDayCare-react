@@ -69,11 +69,15 @@ const DogList = () => {
         }
         return (
             <Link to={path} className="dog" key={dog.chipNumber} >
-                <h3>{dog.name}</h3>
                 <img className="dog_image"
                     src={dog.img}
                     onError={(e) => (e.currentTarget.src = fallback)} />
-                <h4>{present}</h4>
+                <div className='dog_text'>
+                    <div>
+                        <h2>{dog.name}</h2>
+                        <h4>{present}</h4>
+                    </div>
+                </div>
             </Link>
         );
     }
