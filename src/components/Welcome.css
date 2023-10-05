@@ -7,6 +7,11 @@
     
 }
 
+#doggydaycare {
+    height: auto;
+  max-width: 100%;
+}
+
 /* #welcome_content {
     border: solid black 1px;
     align-items: center;
