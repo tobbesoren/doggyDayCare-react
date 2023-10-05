@@ -1,12 +1,13 @@
 #menu {
   top: 0px;
   position: fixed;
-  width: 98%;
+  width: calc(100% - 30px);
   display: flex;
   background-color: #EDAFB8;
   border: solid 2px #861657;
   border-radius: 5px;
   margin: 6px;
+  
 }
 
 #menu_elements {
