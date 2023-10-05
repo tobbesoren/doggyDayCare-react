@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import fallback from "./doggydog.png";
 import { useNavigate, useParams } from "react-router-dom";
+import './DogInfo.css';
 
 
 const DogInfo = () => {
@@ -24,7 +25,7 @@ const DogInfo = () => {
 
     const ErrorComponent = (error) => {
         return (
-            <div>
+            <div id="error">
                 <div>{error}</div>
                 <button onClick={() => {navigate('/doglist')}}>Dog list</button>
             </div>
@@ -65,7 +66,8 @@ const DogInfo = () => {
         }
 
         return (
-            <div>
+            <div id="dog_info">
+            <div >
                 <h2>
                     {dog.name}
                 </h2>
@@ -94,6 +96,9 @@ const DogInfo = () => {
                 <img className="dog_image"
                         src={dog.img}
                         onError={(e) => (e.currentTarget.src = fallback)} />
+                        
+            </div>
+            <button onClick={() => {navigate('/doglist')}}>Back</button>
             </div>
         )
     }
