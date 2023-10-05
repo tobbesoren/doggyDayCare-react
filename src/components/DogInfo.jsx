@@ -26,7 +26,7 @@ const DogInfo = () => {
     const ErrorComponent = (error) => {
         return (
             <div id="error">
-                <div>{error}</div>
+                <div id="e_text">{error}</div>
                 <button onClick={() => {navigate('/doglist')}}>Dog list</button>
             </div>
         )
