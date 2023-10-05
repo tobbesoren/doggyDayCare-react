@@ -1,9 +1,10 @@
 .dog {
-    display:flex;
-    flex: 1 0 0px;
+    width: 320px;;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     border: solid 2px #EDAFB8;
     margin: 5px;
-    border-radius: 5%;
+    border-radius: 10px;
     background-color: #93E1D8 ;
 }
 
@@ -17,9 +18,11 @@
     margin-bottom: 20px;
     margin-left: 20px;
     margin-right: 10px;
+    
 }
 
 .dog_text_block {
+    /* border: solid 1px black; */
     display: flex;
     align-items: center;
     margin:auto;
@@ -34,4 +37,10 @@
     flex: 1 0 0px;
     flex-wrap:wrap;
     justify-content: center;
+}
+
+@media only screen and (max-width: 698px) {
+    .dog {
+        width: 100%;
+    }
 }
