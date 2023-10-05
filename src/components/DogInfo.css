@@ -20,6 +20,10 @@
     margin-top: 50px;
 }
 
+#e_text {
+    margin-bottom: 40px
+}
+
 @media only screen and (max-width: 500px) {
     #dog_info {
         width: 95%;
