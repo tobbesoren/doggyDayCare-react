@@ -2,11 +2,9 @@
     display:flex;
     flex: 1 0 0px;
     border: solid 2px #EDAFB8;
-    
     margin: 5px;
     border-radius: 5%;
     background-color: #93E1D8 ;
-  
 }
 
 .dog_image {
@@ -34,7 +32,6 @@
 #dogGrid {
     display: flex;
     flex: 1 0 0px;
-    
     flex-wrap:wrap;
     justify-content: center;
 }
