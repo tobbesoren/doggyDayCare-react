@@ -6,7 +6,7 @@ const Welcome = () => {
     
     return (
         <div id="welcome">
-            <img
+            <img id="doggydaycare"
             src={doggydaycare}
             />
             <div id="welcome_content">
