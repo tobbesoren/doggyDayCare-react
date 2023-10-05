@@ -1,4 +1,5 @@
 .dog {
+    
     width: 320px;;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -22,7 +23,6 @@
 }
 
 .dog_text_block {
-    /* border: solid 1px black; */
     display: flex;
     align-items: center;
     margin:auto;
@@ -33,6 +33,7 @@
 }
 
 #dogGrid {
+    margin-top: 50px;
     display: flex;
     flex: 1 0 0px;
     flex-wrap:wrap;
