@@ -3,7 +3,7 @@ import './App.css'
 
 import Welcome from './components/welcome'
 import DogList from './components/DogList'
-import DogInfo from './components/doginfo'
+import DogInfo from './components/DogInfo'
 
 import { Link, Route, Routes } from 'react-router-dom'
 
@@ -16,7 +16,7 @@ const NavMenu = () => {
           <section className="menu_item">Welcome</section>
         </Link>
         <Link to="/doglist">
-          <section className="menu_item">DogList</section>
+          <section className="menu_item">Dog list</section>
         </Link>
       </div>
     </div>
