@@ -43,14 +43,20 @@ h4 {
 
 button {
   border-radius: 8px;
-  border: 2px solid #EDAFB8;
+  border: 2px solid #861657;
+  color: #861657 ;
   padding: 0.6em 1.2em;
   font-size: 1.2em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #93E1D8;
+  background-color: #EDAFB8;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width:fit-content;
 }
 button:hover {
   border-color: #F7CE5B;

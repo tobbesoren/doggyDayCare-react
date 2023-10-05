@@ -1,0 +1,27 @@
+#dog_info {
+    display: flex;
+    flex-direction: column;
+   
+    border: solid 3px #EDAFB8;
+    border-radius: 10px;
+    background-color: #93E1D8;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+#error {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+@media only screen and (max-width: 500px) {
+    #dog_info {
+        width: 95%;
+    }
+}

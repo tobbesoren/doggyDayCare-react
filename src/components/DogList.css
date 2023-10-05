@@ -1,6 +1,6 @@
 .dog {
     
-    width: 320px;;
+    width: 320px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     border: solid 2px #EDAFB8;
