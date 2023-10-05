@@ -1,4 +1,7 @@
 #menu {
+  top: 0px;
+  position: fixed;
+  width: 98%;
   display: flex;
   background-color: #EDAFB8;
   border: solid 2px #861657;
@@ -7,12 +10,14 @@
 }
 
 #menu_elements {
+  
   display: flex;
   margin-left: auto;
   margin-right: auto;
 }
 
 .menu_item {
+  /* border: solid black 1px; */
   margin-left: 2em;
   margin-right: 2em;
   padding: 3px;

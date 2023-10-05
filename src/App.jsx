@@ -10,16 +10,16 @@ import { Link, Route, Routes } from 'react-router-dom'
 const NavMenu = () => {
     
   return (
-  <div id="menu">
-    <div id="menu_elements">
-      <Link to="/welcome">
-        <section className="menu_item">Welcome</section>
-      </Link>
-      <Link to="/doglist">
-        <section className="menu_item">DogList</section>
-      </Link>
+    <div id="menu">
+      <div id="menu_elements">
+        <Link to="/welcome">
+          <section className="menu_item">Welcome</section>
+        </Link>
+        <Link to="/doglist">
+          <section className="menu_item">DogList</section>
+        </Link>
+      </div>
     </div>
-  </div>
   )
 }
 
@@ -28,6 +28,7 @@ function App() {
   return (
     <div>
       <NavMenu/>
+      <div id="content">
       <Routes>
         <Route path='/'
           element= {<Welcome/>} />
@@ -40,6 +41,7 @@ function App() {
         <Route path='/doginfo/'
           element= {<DogInfo/>}/>
       </Routes>
+      </div>
     </div>
   )
 }
