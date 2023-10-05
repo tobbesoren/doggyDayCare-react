@@ -2,7 +2,7 @@
 import './App.css'
 
 import Welcome from './components/welcome'
-import DogList from './components/doglist'
+import DogList from './components/DogList'
 import DogInfo from './components/doginfo'
 
 import { Link, Route, Routes } from 'react-router-dom'

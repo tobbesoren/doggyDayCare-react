@@ -72,10 +72,10 @@ const DogList = () => {
                 <img className="dog_image"
                     src={dog.img}
                     onError={(e) => (e.currentTarget.src = fallback)} />
-                <div className='dog_text'>
+                <div className='dog_text_block'>
                     <div>
-                        <h2>{dog.name}</h2>
-                        <h4>{present}</h4>
+                        <h2 className="dog_text">{dog.name}</h2>
+                        <h4 className="dog_text">{present}</h4>
                     </div>
                 </div>
             </Link>

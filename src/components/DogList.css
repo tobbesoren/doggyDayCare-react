@@ -1,8 +1,9 @@
 .dog {
     display:flex;
+    flex: 1 0 0px;
     border: solid 2px #EDAFB8;
-    width:fit-content;
-    margin: 10px;
+    
+    margin: 5px;
     border-radius: 5%;
     background-color: #93E1D8 ;
   
@@ -20,14 +21,20 @@
     margin-right: 10px;
 }
 
-.dog_text {
+.dog_text_block {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin:auto;
   }
+
+.dog_text {
+    text-align: center;
+}
 
 #dogGrid {
     display: flex;
+    flex: 1 0 0px;
+    
     flex-wrap:wrap;
     justify-content: center;
 }
