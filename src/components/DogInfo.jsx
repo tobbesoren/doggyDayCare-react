@@ -52,7 +52,6 @@ const DogInfo = () => {
         } catch (error) {
             setInfoComponent(ErrorComponent("Couldn't find any dog with chipnumber: " + chipnumber));
         }
-
     }
     
 

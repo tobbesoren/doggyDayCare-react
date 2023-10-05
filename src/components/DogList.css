@@ -1,24 +1,40 @@
 .dog {
-    border: solid 1px blue;
-    width:fit-content;
-    margin: 10px;
-    border-radius: 10%;
-    background-color: blanchedalmond;
+    display:flex;
+    flex: 1 0 0px;
+    border: solid 2px #EDAFB8;
+    
+    margin: 5px;
+    border-radius: 5%;
+    background-color: #93E1D8 ;
   
 }
 
 .dog_image {
-    height:100px;
-    width:100px;
+    border: solid 5px #EDAFB8;
+    height:150px;
+    width:150px;
     object-fit: cover;
-    border-radius: 25%;
-    margin-bottom: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.dog_text_block {
+    display: flex;
+    align-items: center;
+    margin:auto;
+  }
+
+.dog_text {
+    text-align: center;
 }
 
 #dogGrid {
     display: flex;
+    flex: 1 0 0px;
+    
     flex-wrap:wrap;
     justify-content: center;
 }
