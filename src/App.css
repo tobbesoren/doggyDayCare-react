@@ -2,6 +2,7 @@
   top: 0px;
   position: fixed;
   width: calc(100% - 30px);
+  min-width: 268px;
   display: flex;
   background-color: #EDAFB8;
   border: solid 2px #861657;
